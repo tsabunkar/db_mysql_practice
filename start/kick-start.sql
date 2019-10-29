@@ -3,3 +3,9 @@ show databases;
 
 select @@hostname;
 -- Username of mysql
+
+
+-- mysql -u root -p;
+/* -u root means that you connect to the MySQL Server using the user account root.
+
+-p instructs mysql to prompt for a password. */

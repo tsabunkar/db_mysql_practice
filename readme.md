@@ -1,6 +1,7 @@
 # Database
 
 - DB is a colllection of data (ex - phonebook) but DB Should also provide methods for accessing and manipulating that data
+- The data relating to each other by nature, e.g., a product belonged to a product category and associated with multiple tags. Therefore, we use the term relational database.
 - DBMS ( Database Management System) :-
 
   Web Application ----> DBMS ----> Database
@@ -32,5 +33,20 @@ NOTE
 
 - Onces learned SQL its pretty easy to switch from one DB to another DB that uses SQL
 - What makes DBMS Unique are the features they offer, not the Language (i.e- SQL)
+- MySQL is open source software backed by Oracle.
+
+---
+
+# SQL
+
+- SQL – the language of the relational database
+- SQL is the standardized language used to access the database.
+- ANSI/SQL defines the SQL standard.
+
+- SQL contains 3 parts:
+
+  - Data definition language includes statements that help you define the database and its objects, e.g., tables, views, triggers, stored procedures, etc.
+  - Data manipulation language contains statements that allow you to update and query data.
+  - Data control language allows you to grant the permissions to a user to access specific data in the database.
 
 ---
