@@ -1,0 +1,10 @@
+$ docker run --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:latest
+$ docker container stop mysql-db
+$ docker container rm mysql-db
+$ docker exec -it mysql-db bash
+# mysql --version
+# mysql -p  (or)  mysql -u root -p  [Passowrd : root]
+
+
+mysql> \! clear  ===> To Clear the MySQL Command Console
+mysql> system clear
