@@ -50,3 +50,57 @@ NOTE
   - Data control language allows you to grant the permissions to a user to access specific data in the database.
 
 ---
+
+# DB Server :
+
+- One database server can have multiple databases- for ex- In mysql db server we can have sys db, practice db, company db, etc
+
+---
+
+# TABLES
+
+- DB is just bunch of tables (In relational databases)
+- Tables : A collection of related data held in a structured format within a db
+- Tables consist of rows and column:
+  - Column : headers/Meta-data [Information of Data]
+  - Rows : The actual data (Each object)
+- Table name should be plural not singular, for ex - employees, tweets, etc
+
+---
+
+# DataTypes
+
+- Numeric Type :
+  - INT
+  - SMALLINT
+  - TINYINT
+  - MEDIUMINT
+  - BIGINT
+  - DECIMAL
+  - NUMERIC
+  - FLOAT
+  - DOUBLE
+  - BIT
+- String Type :
+  - CHAR
+  - VARCHAR (A Variable length String)
+  - BINARY
+  - VARBINARY
+  - BLOB
+  - TINYBLOB
+  - MEDIUMBLOB
+  - LONGBLOB
+  - TEXT
+  - TINYTEXT
+  - MEDIUMTEXT
+  - LONGTEXT
+  - ENUM
+- Date Types :
+  - DATE
+  - DATETIME
+  - TIMESTAMP
+  - TIME
+  - YEAR
+- varchar(100) : If we specifiy the column with datatype as varchar(100) which means limiting the number of characters to be 100, if we go beyond the 100 chars then only from 1st character to 100th character string would be stored
+
+---
