@@ -104,3 +104,39 @@ NOTE
 - varchar(100) : If we specifiy the column with datatype as varchar(100) which means limiting the number of characters to be 100, if we go beyond the 100 chars then only from 1st character to 100th character string would be stored
 
 ---
+
+# NULL
+
+- NUll : The value is not known
+- Null does not means zero
+- INSERT INTO table_name() VALUES(); ==> Will insert NULL
+- How to prevent NULL a particular column ?
+  - We need to specifiy the column as NOT NULL
+  - CREATE TABLE cat2
+    (
+    name VARCHAR (100) NOT NULL
+    );
+- If the column is null, then even though we dont provide the value: We get error - Field 'name' doesn't have a default value
+  - INSERT INTO cat2() VALUES();
+
+---
+
+# DEFAULT
+
+- Set the default values/ fallback values
+- CREATE TABLE cat3
+  (
+  name VARCHAR (100) DEFAULT 'unnamed',
+  age INT DEFAULT 99
+  );
+
+  INSERT INTO cat3() VALUES();
+
+- CREATE TABLE cat4
+  (
+  name VARCHAR (100) NOT NULL DEFAULT 'unnamed',
+  age INT NOT NULL DEFAULT 99
+  ); ==> We are writing not null bcoz - We could still manually make a record as null by specifing explicitly NULL ex-
+  INSERT INTO cat3 (name, age) VALUES ('Gosh', NULL)
+
+---

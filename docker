@@ -13,5 +13,6 @@ mysql> system clear
 $ docker pull mysql:8.0
 $ docker run --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0.18
 // ---If running for second time, then do :-
-$ docker run mysql-db
+$ docker start mysql-db
 $ docker image rm mysql:latest
+
