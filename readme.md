@@ -147,3 +147,27 @@ NOTE
 - For ex- emailID column, Mobile number, UUID, or some type of unique identifiers etc
 - Primary Key ==> A unique identifier on ROW
 - To Generate the ID Automatically:- AUTO_INCREMENT
+
+---
+
+# Read
+
+- SELECT \* FROM table_name -> star means "Give me all columns"
+- SELECT Expression : Specific columns we want to show/project
+
+---
+
+# Update
+
+- Thumb rule : Try selecting data before you UPDATE
+- There is no undo for update onces it is done, so it better to confirm/view before what we are updating
+
+---
+
+# WHERE
+
+- The WHERE clause, is used to filter the row/data
+- Thus WHERE is used to Get specific data
+- ex- SELECT \* FROM cats WHERE age =4;
+  SELECT \* FROM cats WHERE name ='Egg';
+- By default WHERE caluse value is CASE INCENSITIVE, which means-
