@@ -140,3 +140,10 @@ NOTE
   INSERT INTO cat3 (name, age) VALUES ('Gosh', NULL)
 
 ---
+
+# Key
+
+- To remove the identical data, To make data unique ==> Column should be made as Primary Key
+- For ex- emailID column, Mobile number, UUID, or some type of unique identifiers etc
+- Primary Key ==> A unique identifier on ROW
+- To Generate the ID Automatically:- AUTO_INCREMENT
