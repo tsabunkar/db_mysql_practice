@@ -71,7 +71,9 @@ Define an Employee table, with the following fileds:
 - current_status : text, mandatory, default to 'employeed'
  */
 
-/* CREATE TABLE employee_prac
+/* 
+
+CREATE TABLE employee_prac
 (
     eid INT NOT NULL AUTO_INCREMENT,
     last_name VARCHAR(50) NOT NULL,
@@ -80,7 +82,9 @@ Define an Employee table, with the following fileds:
     age INT NOT NULL,
     current_status VARCHAR(20) NOT NULL DEFAULT 'employeed',
     PRIMARY KEY (eid)
-); */
+); 
+
+*/
 
 INSERT INTO employee_prac
     (
@@ -90,3 +94,19 @@ VALUES
     (
         'Tejas', 'Shailesh', 'Sabunkar', 25
 );
+
+
+-- !Another Solution
+/*
+
+CREATE TABLE employee_prac
+(
+    eid INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    middle_name VARCHAR(50) NULL,
+    age INT NOT NULL,
+    current_status VARCHAR(20) NOT NULL DEFAULT 'employeed'
+);
+
+*/
