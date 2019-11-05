@@ -87,4 +87,18 @@ WHERE breed="Shorthairs";
 SELECT cat_id, age
 FROM cats
 WHERE cat_id = age;
+-- In WHERE caluse can have left and right operands as column name also :)
 
+
+--- Alias
+
+SELECT cat_id AS ID, name
+FROM cats;
+
+SELECT cat_id AS 'ID', name
+FROM cats;
+
+-- Alias name can be in single quotes as well
+
+SELECT cat_id AS ID, name, 1 as One
+FROM cats;
