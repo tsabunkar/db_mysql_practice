@@ -96,3 +96,40 @@ FROM books;
 SELECT SUBSTRING(REPLACE(title, 'e', 'E'), 1, 10)
   AS 'short titles'
 FROM books;
+
+
+----------------!REVERSE----------------
+-- Reverse: reverse the string
+SELECT REVERSE('Tejas');
+
+SELECT REVERSE(title)
+FROM books;
+
+-- plaindrome
+SELECT CONCAT('foo', REVERSE('foo'));
+
+SELECT CONCAT(author_fname, REVERSE(author_fname))
+FROM books;
+
+----------------!CHAR_LENGTH----------------
+
+-- Length of number of characters
+SELECT CHAR_LENGTH('tejas');
+
+SELECT author_lname, CHAR_LENGTH(author_lname) AS length
+FROM books;
+
+-- first name -> 'Eggers is 6 character long'
+
+SELECT CONCAT( author_fname, ' is ', CHAR_LENGTH(author_fname), ' character long')
+FROM books;
+
+----------------!UPPER and LOWER----------------
+-- Changing cases to upper and lower case
+
+SELECT UPPER('tejas');
+SELECT LOWER('SAbunkar');
+
+SELECT CONCAT('My Favorite book is : ',  UPPER(title))
+FROM books;
+
