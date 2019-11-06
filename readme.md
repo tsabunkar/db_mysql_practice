@@ -171,3 +171,12 @@ NOTE
 - ex- SELECT \* FROM cats WHERE age =4;
   SELECT \* FROM cats WHERE name ='Egg';
 - By default WHERE caluse value is CASE INCENSITIVE, which means-
+
+---
+
+# AGGREGATE
+
+Aggregate functions are builtin function in mysql which will allow us to aggregate/combine data
+like avg, count, groupby, etc
+
+---
