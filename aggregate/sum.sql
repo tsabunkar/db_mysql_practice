@@ -1,5 +1,5 @@
 -----------!SUM------------
--- sums together data/records value
+-- sums together all data/records value
 -- Applied to column caluse before FROM
 
 --- Problem : Sum all pages in the entier database
