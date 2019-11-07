@@ -180,3 +180,13 @@ Aggregate functions are builtin function in mysql which will allow us to aggrega
 like avg, count, groupby, etc
 
 ---
+
+# !IF your are getting Error :
+
+Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column
+'book_shop.books.title' which is not functionally dependent on columns in GROUP BY clause;
+this is incompatible with sql_mode=only_full_group_by
+
+- SET sql_mode = '';
+
+---
