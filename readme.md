@@ -115,6 +115,10 @@ NOTE
 - Thus, FLOAT and DOUBLE : can store larger numbers using less space but comes at the cost of precision
 - Which data type to be used DECIMAL or FLOAT/DOUBLE ?
   - If we need precision of decimal points then use DECIMAL data type like finance, banking, stock market, otherwise you can use FLOAT or DOUBLE
+- ## Dates and Times:
+  - DATE : Stroes date value but not time, Format -> 'YYYY-MM-DD'
+  - TIME : Stroes time valye but not date, Format -> 'HH:MM:SS'
+  - DATETIME : Stores values with a data and time, Format -> 'YYYY-MM-DD HH:MM:SS'
 
 ---
 
