@@ -102,6 +102,19 @@ NOTE
   - TIME
   - YEAR
 - varchar(100) : If we specifiy the column with datatype as varchar(100) which means limiting the number of characters to be 100, if we go beyond the 100 chars then only from 1st character to 100th character string would be stored
+- Difference betweeen VARCHAR v/s CHAR :
+
+  - CHAR has a fixed length, if CHAR(5) then if no characters is more than it will truncate or if less then add spaces, Where as VARCHAR can be varying
+  - The length of a CHAR column is fixed to the length that you declare when you create the table. The length can be any value from 0 to 255. When CHAR values are stored, they are right-padded with spaces to the specified length. When CHAR values are retrieved, tailing spaces are removed unless the PAD_CHAR_TO_FULL_LENGTH SQL moode is enabled.
+  - CHAR is faster for fixed length text (for ex - Stat Abberavation(KA for karnataka), SEX m/f, Yes/No flags)
+
+- INT : is for WHOLE Numbers
+- DECIMAL : DECIMAL(13,2) ==> 13 - max number of digits this column can have or Total number of digits and 2 - Digits comes after the decimal point. NOTE : DECIMAL(M,D) where M can range from 1 to 65 and D can range from 0 to 30
+- DECMIAL data type is a fixed-point type and calculation is exact.
+- FLOAT and DOUBLE data type are floating-point type and calculation are approximate.
+- Thus, FLOAT and DOUBLE : can store larger numbers using less space but comes at the cost of precision
+- Which data type to be used DECIMAL or FLOAT/DOUBLE ?
+  - If we need precision of decimal points then use DECIMAL data type like finance, banking, stock market, otherwise you can use FLOAT or DOUBLE
 
 ---
 
