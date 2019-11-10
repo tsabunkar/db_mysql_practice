@@ -258,3 +258,22 @@ this is incompatible with sql_mode=only_full_group_by
   - cutomer_id is FK in orders table, which refers to pk of customers table
   - A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
   - It acts as a cross-reference between tables because it references the primary key of another table
+
+---
+
+# JOINS
+
+- It take two tables and join them as projection/view only
+- Different types of joins:
+  - Cross Join
+  - Inner Join
+  - Left Join
+  - Right Join
+  - Outer Join
+
+---
+
+# Difference between Cross Join v/s Full Outer Join
+
+- A cross join produces a cartesian product between the two tables, returning all possible combinations of all rows. It has no on clause because you're just joining everything to everything
+- full outer join is a combination of a left outer and right outer join. It returns all rows in both tables that match the query's where clause, and in cases where the on condition can't be satisfied for those rows it puts null values in for the unpopulated fields.
