@@ -94,3 +94,143 @@ FROM people;
 
 SELECT birth_date, DATE_FORMAT(birth_date, '%m/%d/%y at %h:%m') As 'my format'
 FROM people;
+
+
+------------------! DATE MATH--------------------
+
+-- !DATEDIFF() -> Gives the difference between two dates, it gives o/p as number of days
+
+SELECT birth_date, DATEDIFF(NOW(), birth_date) AS 'difference'
+FROM people;
+
+
+-- !DATE_ADD(date, INTERVAL expression unit)
+
+/* 
+
+SELECT birth_dt, DATE_ADD(birth_dt, INTERVAL
+1 MONTH) FROM people; 
+
+*/
+-- Adds one month to the birth_dt column values
+
+
+/* 
+
+SELECT birth_dt, DATE_ADD(birth_dt, INTERVAL
+10 SECOND) FROM people;  
+
+*/
+
+/* 
+
+SELECT birth_dt, DATE_ADD(birth_dt, INTERVAL
+3 QUARTER) FROM people;  
+
+*/
+
+
+--! date + INTERVAL expression unit
+--! date - INTERVAL expression unit
+
+/* 
+
+SELECT birth_dt, birth_dt + INTERVAL 1 MONTH
+FROM people; 
+
+*/
+
+/* 
+
+SELECT birth_dt, birth_dt - INTERVAL 5 MONTH 
+FROM people;  
+
+*/
+
+/* 
+
+SELECT birth_dt, birth_dt - INTERVAL 15 MONTH + INTERVAL 10 HOUR
+FROM people; 
+
+*/
+
+----------------! TIMESTAMPS -------------------------
+-- Timestamp is datatype in MySQL
+-- DATETIME and TIMESTAMP are 2 data types in sql which used to store both date and time,
+--  but differences are- 
+--      DATETIME support range '1000-01-01 00:00:00' to '9999-12-31 23:59:59'
+--      TIMESTAMP support range '1970-01-01 00:00:00' UTC to '2038-12-31 03:14:07' UTC
+
+CREATE TABLE comments
+(
+    content VARCHAR(100),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+INSERT INTO comments
+    (content)
+VALUES
+    ('It is great to work in Google');
+
+INSERT INTO comments
+    (content)
+VALUES
+    ('What is this article about');
+
+INSERT INTO comments
+    (content)
+VALUES
+    ('Article was greate');
+
+SELECT *
+FROM comments
+ORDER BY created_at DESC;
+
+-- If particular row is upated then when we want to update the timestamp :-
+
+/* 
+
+CREATE TABLE comments2
+(
+    content VARCHAR(100),
+    changed_at TIMESTAMP DEFAULT NOW() ON UPDATE CURRENT_TIMESTAMP
+); 
+
+*/
+
+INSERT INTO comments2
+    (content)
+VALUES
+    ('Blockchain');
+
+INSERT INTO comments2
+    (content)
+VALUES
+    ('Aritifical Intelligence');
+
+INSERT INTO comments2
+    (content)
+VALUES
+    ('DATA Scientist');
+
+/* 
++-------------------------+---------------------+
+| content                 | changed_at          |
++-------------------------+---------------------+
+| Blockchain              | 2019-11-10 01:03:51 |
+| Aritifical Intelligence | 2019-11-10 01:03:52 |
+| DATA Scientist          | 2019-11-10 01:04:20 | 
++-------------------------+---------------------+
+ */
+
+
+UPDATE comments2 SET content='Data Scientist' WHERE content='DATA Scientist';
+/* 
++-------------------------+---------------------+
+| content                 | changed_at          |
++-------------------------+---------------------+
+| Blockchain              | 2019-11-10 01:03:51 |
+| Aritifical Intelligence | 2019-11-10 01:03:52 |
+| Data Scientist          | 2019-11-10 01:06:34 | <=== (Row value updated, Also automatically timestamp)
++-------------------------+---------------------+
+*/
