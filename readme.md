@@ -163,6 +163,10 @@ NOTE
 - To remove the identical data, To make data unique ==> Column should be made as Primary Key
 - For ex- emailID column, Mobile number, UUID, or some type of unique identifiers etc
 - Primary Key ==> A unique identifier on ROW
+- The PRIMARY KEY constraint uniquely identifies each record in a table.
+- A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns.
+- Primary keys must contain UNIQUE values, and cannot contain NULL values.
+
 - To Generate the ID Automatically:- AUTO_INCREMENT
 
 ---
@@ -207,3 +211,50 @@ this is incompatible with sql_mode=only_full_group_by
 - SET sql_mode = '';
 
 ---
+
+# RELATIONSHIP AND JOINS
+
+- Real world data is messy and inter-related to each other
+- Book entity itself can have other dependentable entity like- Authors, Versions, Customers, Review, Genres, Orders, etc (This is Real World Examples)
+- Thus we need to have different tables for these entities and relationship between these tables
+- Above relationship between tables can be shown using- Schema Diagrams
+
+- Types of Relationship :
+
+  - One to One
+  - One to Many (or) Many to One
+  - Many to Many
+
+- One to One Relationship :
+
+  - One customer detail row (in details table) can be relate to one email row (in users table)
+  - Student Id in Student Table relates to Contact Info table
+  - Passport Id in Person table relates to Passport table
+
+- One to Many Relationship :
+
+  - One book can have many reviews, but A particular review belongs to only One book
+  - One mother can have multiple childrens, but a children can have only one mother
+  - An employee can have mutiple bank accounts, but a particular bank account belongs to only one employee
+
+- Many to Many Relationship :
+  - (book : author) -> One book can be written by multiple authors, An authors can write many books [ For ex- Design pattern book was written by Erich, Richard, Ralph, John (4 authors) where as Erich Gamma has written multiple books - Contributing to Eclipse, Design Pattern, Head first, etc ]
+  - (Candidate : Interviewer) -> One Candidate can apply/schedule an interview with muliple inteviewer, whereas one interviewe can get potentially multiple candidates for an interview
+
+---
+
+# 1 : MANY
+
+- (Customers : Orders) -> A customer can place many orders, but each order is authenticated to only one person/cutomer.
+- We can create a big table, where the customers table itself have order details in it. but we will have lot of duplication data also a customer would not have place the order, then order details column would be NULL.
+- Thus, having inside the same table can cause problem like - Duplication of data and having NULL in particular Columns record.
+- ## PRIMARY KEY :
+  - The PRIMARY KEY constraint uniquely identifies each record in a table.
+  - A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns.
+  - Primary keys must contain UNIQUE values, and cannot contain NULL values.
+  - (Customers : Orders) cutomer_id and order_id are primary key columns for these two tables respectively
+- ## FOREGIN KEY :
+  - Forgien Keys are references to another table from an given table
+  - cutomer_id is FK in orders table, which refers to pk of customers table
+  - A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
+  - It acts as a cross-reference between tables because it references the primary key of another table
