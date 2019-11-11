@@ -71,7 +71,7 @@ FROM series INNER JOIN reviews
 GROUP BY genre;
 
 /*
-Problem 5:
+Problem 6:
 Find statistics for each reviewer i.e.- firstname, lastname, count (no of reviews given), min (min 
 review given by user), max (max review given by user), avg (average review given by user), status (
 If review count of review given is 0 then status is inactive else active
@@ -129,3 +129,37 @@ FROM reviewers LEFT JOIN reviews
 GROUP BY reviewers.r_id; 
 
 */
+
+
+/*
+Problem 7:
+print out the title, rating, and reviewer who wrote that review
+*/
+
+SELECT title, rating
+FROM series
+    INNER JOIN reviews
+    ON series.s_id = reviews.series_id;
+
+
+SELECT CONCAT(first_name, ' ', last_name) AS 'reviewer', rating
+FROM reviewers
+    INNER JOIN reviews
+    ON reviewers.r_id = reviews.reviewer_id;
+
+
+SELECT CONCAT(first_name, ' ', last_name) AS 'reviewer', rating
+FROM reviewers
+    INNER JOIN reviews
+    ON reviewers.r_id = reviews.reviewer_id
+    INNER JOIN series
+    ON series.s_id = reviews.series_id;
+
+
+SELECT title, rating, CONCAT(first_name, ' ', last_name) AS 'reviewer'
+FROM reviewers
+    INNER JOIN reviews
+    ON reviewers.r_id = reviews.reviewer_id
+    INNER JOIN series
+    ON series.s_id = reviews.series_id
+ORDER BY title;
