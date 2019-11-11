@@ -277,3 +277,14 @@ this is incompatible with sql_mode=only_full_group_by
 
 - A cross join produces a cartesian product between the two tables, returning all possible combinations of all rows. It has no on clause because you're just joining everything to everything
 - full outer join is a combination of a left outer and right outer join. It returns all rows in both tables that match the query's where clause, and in cases where the on condition can't be satisfied for those rows it puts null values in for the unpopulated fields.
+
+---
+
+# Many : Many
+
+- Books <-> Authors
+- Blog Post <-> Tags
+- Students <-> Classes
+- tv show reviewing application : Reviewer <-> Series (TV Show)
+- Join Table/Union Table is used to relate between parent and child table
+- Series Data <-----Reviews Data-----> Reviewers Data
