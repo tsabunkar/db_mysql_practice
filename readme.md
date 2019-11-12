@@ -288,3 +288,9 @@ this is incompatible with sql_mode=only_full_group_by
 - tv show reviewing application : Reviewer <-> Series (TV Show)
 - Join Table/Union Table is used to relate between parent and child table
 - Series Data <-----Reviews Data-----> Reviewers Data
+
+---
+
+# Instagram DB Case Study
+
+- Entity we want to store : USERS, COMMENTS, LIKES, PHOTOS, HASHTAGS, FOLLOWERS
