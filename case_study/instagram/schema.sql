@@ -95,3 +95,5 @@ CREATE TABLE photo_tags
 -- DESC follows;
 -- DESC tags;
 -- DESC photo_tags;
+
+--- SHOW TABLES;
