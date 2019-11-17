@@ -307,3 +307,28 @@ this is incompatible with sql_mode=only_full_group_by
   GROUP BY
   HAVING
   ORDER BY
+  LIMIT
+
+---
+
+# DB Triggers
+
+- SQL Statements that are automatically run when a specific table is changed
+- Syntax :
+
+  <!--
+  CREATE TRIGGER trigger_name
+      trigger_time trigger_event ON table_name FOR EACH ROW
+      BEGIN
+      --
+      --
+      ROW;
+   -->
+
+- In above syntax
+  - trigger_time :- BEFORE, AFTER
+  - trigger_event :- INSERT, UPDATE, DELETE
+- This trigger can only happens before or after, i.e- before specific table is changed or after specific table is changed.
+- Example of triggers used in real time example :
+  - Validating userage is greater than 18, if less than that age then we can trigger some query.
+  - When user unfollow some 1, then after that run a trigger to register when user had unfollowed (kind of history)
