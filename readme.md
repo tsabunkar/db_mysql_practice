@@ -294,3 +294,16 @@ this is incompatible with sql_mode=only_full_group_by
 # Instagram DB Case Study
 
 - Entity we want to store : USERS, COMMENTS, LIKES, PHOTOS, HASHTAGS, FOLLOWERS
+
+---
+
+# HAVING
+
+- The HAVING Clause enables you to specify conditions that filter which group results appear in the results.
+- The WHERE clause places conditions on the selected columns, whereas the HAVING clause places conditions on groups created by the GROUP BY clause.
+- SELECT
+  FROM
+  WHERE
+  GROUP BY
+  HAVING
+  ORDER BY
