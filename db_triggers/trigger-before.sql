@@ -69,3 +69,60 @@ FROM wdjhfiwjhfgiw;
 -- Table 'trigger_demo.wdjhfiwjhfgiw' doesn't exist -> Error message string/text
 
 -- 45000 -> (SIGNAL SQLSTATE) :- A generic state representing "unhandled user-defined exception"
+
+-- Ex2 :-
+
+/*
+
+DELIMITER $$
+
+CREATE TRIGGER prevent_self_follow
+    BEFORE INSERT ON follows FOR EACH ROW
+    BEGIN 
+    IF NEW.follower_id = NEW.followee_id
+    THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'You cannot follow yourself!';
+        END IF;
+    END;
+$$
+
+*/
+
+-- ! Creating Loggers using Triggers
+
+/*
+
+DELIMITER $$
+
+CREATE TRIGGER trigger_name
+    trigger_time trigger_event ON table_name FOR EACH ROW
+    BEGIN
+    END;
+$$
+
+*/
+
+
+/* 
+
+DELIMITER $$
+
+CREATE TRIGGER create_unfollow
+    AFTER DELETE ON follows FOR EACH ROW 
+BEGIN
+    INSERT INTO unfollows
+    SET follower_id = OLD.follower_id,
+        followee_id = OLD.followee_id;
+END$$
+
+DELIMITER ;
+
+ */
+
+
+-- Listing Triggers
+-- SHOW TRIGGERS;
+
+-- Removing Triggers
+DROP TRIGGER trigger_name;
