@@ -61,6 +61,19 @@
 - OneToOne Relationship
   - 1 record in a Parent table relates to 1 and only 1 record in a child table (Second table)
   - Used primarily for security reasons.
-  - [./1To1.png]
+  - [./one2one/1To1.png] ==> Emplyees Table has EmployeeId is PK and also EmployeeDetails has EmployeeId is PK
+  - [./one2one/1To1-Employee-Salary.png] ==> Emplyees Table has EmployeeId is PK and also Salary has EmployeeId is PK (Even though hacker got the access of Salary table, he will never get to know whoes salary belongs which employee untill he get the access of Employee table --> Thus Security is Enhanced)
+
+---
+
+- OneToMany Relationship
+  - 1 record in a Parent table relates to 1 or more records in a Child table (second table)
+  - Most Commonly used
+  - ex:
+    - 1 person can have more mobile product
+    - 1 person can have multiple pair of shoes
+  - [./one2many/cruise-flat.png] ==> Flat/Gaint table which had been normalized to Ships table and Departures table
+  - [./one2many/ships.png] ==> Ships table (ShipNumber is PK)
+  - [./one2many/departures.png] ==> Departures table (DepartureID is PK)
 
 ---
