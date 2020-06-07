@@ -42,8 +42,8 @@
 - This step you - Try Normaizing your db
 - Most Critical and Most Difficult question: "Can one ** have more than one ** ?"
   - ex:
-    - Can one customer have more than one last name ? ==> 'No'
-    - Can a customer have more than one telephone no ? ==> 'Yes' (Whenever the answer is -Yes, create another/separate table)
+    - Can one customerID have more than one last name ? ==> 'No'
+    - Can one customerID have more than one telephone no ? ==> 'Yes' (Whenever the answer is -Yes, create another/separate table)
     - Can one EmployeeID have more than one Job Title ? ==> 'Yes' (Job Title--> will be another table)
     - Can one CompanyId have more than one Company Name ? ==> 'No'
     - Can one companyName have more than one Street_address ? ==> 'Yes' (create separate Company Address table)
@@ -97,3 +97,13 @@
     - Creating normalize table -> Order Details Table between Orders table and Products table ==> [./many2many/remove-Many2Many.png]
 
 ---
+
+- Relating Company Table
+  - For Company Table which was normalized : we can relates (put relationship) ==> [./normalize-ex/normalize-relation-final-table.png]
+
+---
+
+# BAD DESIGN
+
+- Table which are wide is bad designed rather we should have table which are long -> means : Table which have more number of columns are bad designed rather we should have multiple normalized table with less number of columns and more number of records
+  - Example :
