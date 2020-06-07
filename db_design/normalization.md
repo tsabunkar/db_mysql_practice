@@ -58,22 +58,42 @@
 
 ---
 
-- OneToOne Relationship
-  - 1 record in a Parent table relates to 1 and only 1 record in a child table (Second table)
-  - Used primarily for security reasons.
-  - [./one2one/1To1.png] ==> Emplyees Table has EmployeeId is PK and also EmployeeDetails has EmployeeId is PK
-  - [./one2one/1To1-Employee-Salary.png] ==> Emplyees Table has EmployeeId is PK and also Salary has EmployeeId is PK (Even though hacker got the access of Salary table, he will never get to know whoes salary belongs which employee untill he get the access of Employee table --> Thus Security is Enhanced)
+## OneToOne Relationship
+
+- 1 record in a Parent table relates to 1 and only 1 record in a child table (Second table)
+- Used primarily for security reasons.
+- [./one2one/1To1.png] ==> Emplyees Table has EmployeeId is PK and also EmployeeDetails has EmployeeId is PK
+- [./one2one/1To1-Employee-Salary.png] ==> Emplyees Table has EmployeeId is PK and also Salary has EmployeeId is PK (Even though hacker got the access of Salary table, he will never get to know whoes salary belongs which employee untill he get the access of Employee table --> Thus Security is Enhanced)
 
 ---
 
-- OneToMany Relationship
-  - 1 record in a Parent table relates to 1 or more records in a Child table (second table)
-  - Most Commonly used
-  - ex:
-    - 1 person can have more mobile product
-    - 1 person can have multiple pair of shoes
-  - [./one2many/cruise-flat.png] ==> Flat/Gaint table which had been normalized to Ships table and Departures table
-  - [./one2many/ships.png] ==> Ships table (ShipNumber is PK)
-  - [./one2many/departures.png] ==> Departures table (DepartureID is PK)
+## OneToMany Relationship
+
+- 1 record in a Parent table relates to 1 or more records in a Child table (second table)
+- Most Commonly used
+- ex:
+  - 1 person can have more mobile product
+  - 1 person can have multiple pair of shoes
+- [./one2many/cruise-flat.png] ==> Flat/Gaint table which had been normalized to Ships table and Departures table
+- [./one2many/ships.png] ==> Ships table (ShipNumber is PK)
+- [./one2many/departures.png] ==> Departures table (DepartureID is PK)
+
+---
+
+## ManyToMany Relationship
+
+- 1 or more records in a Parent table relates to 1 or more records in a child table (second table)
+- Not recommended
+- Creates Cartesian Join
+- Returned datasets are typically unusable and inflated
+- BAD Practice / Not recommended to have this relationship, If you try to join these two table you will get -> Cartesian Join (if Table 'A' ha 100 reocrds, Table 'B' has 100 records then if I join total records = 10k records, bcoz - Table 'A' first record will join to all the 100 records of Table 'B', Table 'A' second record will join to all the 100 records of Table 'B' soon....)
+- Example:
+  - Consider 3 table Customers, Orders and Products Table
+  - Customers (CustomerID - PK) {1}------>{∞} Orders (OrderID - PK) [One Customer can place many orders]
+  - Products (ID - PK) {∞} -----> {∞} Orders (OrderID - PK) [Many Product can have Many Orders ]
+  - [./many2many/many2many.png]
+  - To Remove Many2Many Relationship Trick:
+    - Create a normalize table (intermediate) between Products table and Orders table
+    - Creating normalize table -> Order Details Table between Orders table and Products table ==> [./many2many/remove-Many2Many.png]
 
 ---
