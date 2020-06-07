@@ -15,3 +15,12 @@
   - Efficient
   - Reduces redndant data
 - Non-Relational : MongoDB, DynamoDB, Redis
+
+# Process of DB Design
+
+- Determine the purpose of the db (what your db would track ?)
+- Collect the previous exisiting Paper Forms, Report, etc (which was used before db)
+- Meet with Current and Future Users
+- Normalize the Data (Reducing/removing redundancy- so that we don't have gaint tables)
+- Create the Database (Creating the columns- breakdown into lowest form, if we have name column- try to break first_name, last_name, etc)
+- Review
