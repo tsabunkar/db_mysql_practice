@@ -13,6 +13,7 @@
   - Improves data consistency
 - Breaking the large/gaint tables into logical tables which are related to each other, thus removing the redundancy
 - Boyce-Codd Normal Form (Five Normal Forms)
+- Ref: https://beginnersbook.com/2015/05/normalization-in-dbms/
 
 ---
 
@@ -107,3 +108,17 @@
 
 - Table which are wide is bad designed rather we should have table which are long -> means : Table which have more number of columns are bad designed rather we should have multiple normalized table with less number of columns and more number of records
   - Example :
+    - Wide Table : [./design/wide-contacts.png]
+    - Normalized Table : [./design/wide-normalized-contact.png] From Contacts Table (Parent)we have created 2 child tables -> Contact Phones Table (Child1) and Contact Emails Table (Child2)
+
+---
+
+# DESIGN RULES
+
+- Every table must start with a Primary Key
+- All fields must support the Primary Key
+- Use Lookup tables when you want to limit field entries (ex: for payment method/type , we can create a look up table (Payments Table) which allow only specific options like- cash, credit, etc)
+- Do not include spaces in field names (ex- first_name)
+- Break all fields into lowest common denominator --> i.e - name field break out into multiple fields like - first_name, last_name, middle_name, etc
+
+---
