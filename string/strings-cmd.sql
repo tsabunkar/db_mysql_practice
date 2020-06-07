@@ -41,7 +41,7 @@ FROM books;
 
 SELECT SUBSTRING('Hello World', 1,4);
 -- o/p : Hell
--- SUBSTRING('String', startingIndex Character, startingIndex Character);
+-- SUBSTRING(input_string, start, length);
 -- In MySQL index start with 1, not like programming langu with start with 0
 
 SELECT SUBSTRING('Hello World', 7);
