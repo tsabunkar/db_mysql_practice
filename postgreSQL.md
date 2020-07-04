@@ -69,7 +69,8 @@ https://hub.docker.com/_/postgres
   Connection : 172.17.0.2 (This ip address you will know, by inspecting postgre-server container running)
   Port : 5432
   Maintance db : postgres
-  USername : postgres [default user provide by postgreSQL]
+  Username : postgres [default user provide by postgreSQL]
+  password : (you know)
 
 REF:
 https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
