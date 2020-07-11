@@ -332,3 +332,17 @@ this is incompatible with sql_mode=only_full_group_by
 - Example of triggers used in real time example :
   - Validating userage is greater than 18, if less than that age then we can trigger some query.
   - When user unfollow some 1, then after that run a trigger to register when user had unfollowed (kind of history)
+
+---
+
+# NATURAL JOIN
+
+- kind of inner join but columns with the same name of associated tables will appear once only.
+- There is one significant difference between INNER JOIN and NATURAL JOIN is the number of columns returned.
+- When to use NATURAL JOIN:
+  - The associated tables have one or more pairs of identically named columns.
+  - The columns must be the same data type.
+  - Don’t use ON clause in a natural join.
+- REF: https://www.w3resource.com/sql/joins/natural-join.php
+
+---
