@@ -40,7 +40,7 @@ https://askubuntu.com/questions/32730/how-to-remove-postgres-from-my-installatio
   - sudo docker images hello-world
 - docker pull postgres:12
 - docker image ls
-- docker run --name postgres-server -e POSTGRES_PASSWORD=root -d postgres:12
+- docker run --name postgres-server -e POSTGRES_PASSWORD=root -d -v /home/tejas/tejas/docker-data/postgre-data:/var/lib/postgresql/data postgres:12
 - docker container ls
 - docker container stop postgres-server
 - docker container rm postgres-server

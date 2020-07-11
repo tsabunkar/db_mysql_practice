@@ -16,3 +16,18 @@ $ docker run --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:8
 $ docker start mysql-db
 $ docker image rm mysql:latest
 
+
+--------
+
+$ docker container latest
+$ docker container exec -it postgres-server /bin/bash
+ (Jumping into running postgress-server container using bin-bash)
+$ postgres --version
+$ psql -U postgres (psql client to run sql queries)
+postgres=# SELECT 1;
+
+(or)
+- SYNTAX : docker exec -it <container_name> psql -U <user>  -W  <db_name>
+$ docker exec -it postgres-server psql -U postgres  -W  dvdrental
+$ \dt (list of tables -> using psql, you can use the following command
+ to show tables in the current database.)
