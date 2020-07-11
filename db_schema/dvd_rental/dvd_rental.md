@@ -23,8 +23,8 @@ https://www.postgresqltutorial.com/postgresql-sample-database/
 
 # Steps
 
-- CREATE DATABASE dvdrental; (Run pgadmin)
-- Using CLI to pg-restore from .tar file
+- CREATE DATABASE dvdrental; (Run in pgadmin)
+- Using CLI to pg-restore from .tar file (RUNNING pg_restore COMMAND to restore dump file from host-machine)
 
   - SYNTAX : docker exec -i container_name pg_restore -U postgres_user -v -d database_name < /dir_backup_outside_container/file_name.tar
   - docker exec -i postgres-server pg_restore -U postgres -v -d dvdrental < /home/tejas/tejas/workspace/vsc/db_sql_practice/db_schema/dvd_rental/dvdrental.tar
