@@ -346,3 +346,13 @@ this is incompatible with sql_mode=only_full_group_by
 - REF: https://www.w3resource.com/sql/joins/natural-join.php
 
 ---
+
+# SQL JOIN - WHERE clause vs. ON clause
+
+- Does not matter for inner joins
+- Matters for outer joins
+
+  a. WHERE clause: After joining. Records will be filtered after join has taken place.
+  b. ON clause - Before joining. Records (from right table) will be filtered before joining. This may end up as null in the result (since OUTER join).
+
+---
