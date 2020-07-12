@@ -1,4 +1,11 @@
--- Write a query to find the addresses (location_id, street_address, city, state_province, country_name) of all the departments.
+/*
+# SQL JOIN PROBLEMS
+https://www.w3resource.com/postgresql-exercises/join/
+*/
+
+--1
+-- Write a query to find the addresses (location_id, street_address, city, state_province, 
+--country_name) of all the departments.
 
 SELECT * FROM departments;
 SELECT * FROM locations;
@@ -33,7 +40,7 @@ NATURAL JOIN departments;
 -------------
 
 
-
+--2
 -- Write a query to make a join with employees and departments table to find the name of the employee, including 
 -- first_name and last name, department ID and name of departments.
 
