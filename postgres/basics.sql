@@ -401,3 +401,4 @@ WHERE rating = NULL
 -- ? Correct way of comparsion
 SELECT * FROM film
 WHERE rating IS NULL 
+

@@ -141,4 +141,3 @@
 - Please understand - NULL is not a value, therefore, we cannot compare it with any other values as we do for numbers or strings
 - The comparison of NULL with a value will always result in NULL, which means an unknown result.
 - In order to check whether a value is NULL or not, you use the IS NULL operator instead: SYNTAX: value IS NULL;
--
