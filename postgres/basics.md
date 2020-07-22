@@ -141,3 +141,25 @@
 - Please understand - NULL is not a value, therefore, we cannot compare it with any other values as we do for numbers or strings
 - The comparison of NULL with a value will always result in NULL, which means an unknown result.
 - In order to check whether a value is NULL or not, you use the IS NULL operator instead: SYNTAX: value IS NULL;
+
+---
+
+# Grouping Data
+
+## GROUP BY
+
+- GROUP BY clause divides the rows returned from the SELECT statement into groups.
+- For each group, you can apply an aggregate function e.g., SUM() to calculate the sum of items or COUNT() to get the number of items in the groups.
+- FROM ==> WHERE ==> GROUP BY ==> HAVING ==> SELECT ==> DISTINCT ==> ORDER BY ==> LIMIT
+- Since the GROUP BY clause is evaluated before the SELECT clause, you cannot use column aliases in the GROUP BY clause
+- We can also use other clauses of the SELECT statement with the GROUP BY clause.
+
+## HAVING
+
+- HAVING clause to specify a search condition for a group or an aggregate returned by the GROUP BY clause.
+- the group by clause returns rows grouped by the <column1>. The HAVING clause specifies a condition to filter on the groups.
+- we can also add other clauses of the SELECT statement such as JOIN, LIMIT, FETCH etc.
+- Since the HAVING clause is evaluated before the SELECT clause, you cannot use column aliases in the HAVING clause.
+- HAVING vs. WHERE
+  - WHERE clause allows you to filter rows based on a specified condition. However, the HAVING clause allows you to filter groups of rows according to a specified condition.
+  - WHERE clause is applied to rows while the HAVING clause is applied to groups of rows.

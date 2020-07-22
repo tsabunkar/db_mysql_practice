@@ -398,4 +398,71 @@ SELECT
 FROM
 	film
 WHERE
-	rating IS NULL
+	rating IS NULL;
+
+----------------------------------------------------------------
+---------------------- ! GROUP BY-------------------------------------
+-- ? GROUP BY without an aggregate function 
+-- ? In this case, the GROUP BY works like the DISTINCT clause that 
+-- ? removes duplicate rows from the result set
+SELECT
+	customer_id
+FROM
+	payment
+GROUP BY
+	customer_id;
+
+--? GROUP BY with SUM() function
+SELECT
+	customer_id,
+	SUM (amount) sumAmt
+FROM
+	payment
+GROUP BY
+	customer_id
+ORDER BY
+	sumAmt DESC;
+
+-- ? GROUP BY clause with the JOIN clause
+SELECT
+	first_name || ' ' || last_name full_name,
+	SUM (amount) amount
+FROM
+	payment
+	INNER JOIN customer USING (customer_id)
+GROUP BY
+	full_name
+ORDER BY
+	amount;
+
+-- ? GROUP BY clause with date column
+SELECT
+	DATE(payment_date) paid_date,
+	SUM(amount) sum
+FROM
+	payment
+GROUP BY
+	DATE(payment_date);
+
+----------------------------------------------------------------
+---------------------- ! HAVING-------------------------------------
+-- ? HAVING clause with Aggregate function
+SELECT
+	customer_id,
+	SUM (amount)
+FROM
+	payment
+GROUP BY
+	customer_id
+HAVING
+	SUM (amount) > 200;
+
+SELECT
+	store_id,
+	COUNT (customer_id)
+FROM
+	customer
+GROUP BY
+	store_id
+HAVING
+	COUNT (customer_id) > 300;
