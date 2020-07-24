@@ -44,4 +44,55 @@
 
 - A grouping set is a set of columns by which you group by using the GROUP BY clause.
 - A grouping set is denoted by a comma-separated list of columns placed inside parentheses: (column1, column2, ...)
+- Grouping function:
+  - GROUPING() function accepts an argument which can be a column name or an expression
+  - SYTNAX: GROUPING( column_name | expression)
+  - column_name or expression must match with the one specified in the GROUP BY clause.
+- GROUPING SET
+
+## CUBE
+
+- CUBE is a subclause of the GROUP BY clause
+- CUBE allows you to generate multiple grouping sets.
+- SYNTAX:
+
+SELECT
+c1,
+c2,
+c3,
+aggregate (c4)
+FROM
+table_name
+GROUP BY
+CUBE (c1, c2, c3);
+
+- CUBE subclause in the the GROUP BY clause of the SELECT statement
+- In general, if the number of columns specified in the CUBE is n, then you will have 2^n combinations.
+
+## ROLLUP
+
+- ROLLUP to generate multiple grouping sets.
+- Different from the CUBE subclause, ROLLUP does not generate all possible grouping sets based on the specified columns. It just makes a subset of those.
+
+---
+
+# Subquery
+
+- allows us to construct complex queries.
+- query inside the brackets is called a subquery or an inner query
+- The query that contains the subquery is known as an outer query.
+- PostgreSQL executes the query that contains a subquery in the following sequence:
+  - First, executes the subquery.
+  - Second, gets the result and passes it to the outer query.
+  - Third, executes the outer query.
+- A subquery can return zero or more rows (check IN operator usage).
+- We can also use subquery with IN operator.
+- We can also use subquery with EXISTS operator.
+  - A subquery can be an input of the EXISTS operator.
+  - If the subquery returns any row ==> the EXISTS operator returns true. - If the subquery returns no row ==> the result of EXISTS operator is false.
+  - The EXISTS operator only cares about the number of rows returned from the subquery, not the content of the rows, therefore, the common coding convention of EXISTS operator is :
+    - SYNTAX: EXISTS (SELECT 1 FROM tbl WHERE condition);
+
+## ANY operator
+
 -
