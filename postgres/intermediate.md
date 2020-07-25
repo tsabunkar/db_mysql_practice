@@ -175,4 +175,5 @@ WITH RECURSIVE cte_name AS(
   - Consistency ensures the change to data written to the database must be valid and follow predefined rules.
   - Isolation determines how transaction integrity is visible to other transactions.
   - Durability makes sure that transactions that have been committed will be stored in the database permanently.
--
+
+---
