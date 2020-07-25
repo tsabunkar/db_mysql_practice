@@ -95,4 +95,27 @@ CUBE (c1, c2, c3);
 
 ## ANY operator
 
--
+- ANY operator compares a value to a set of values returned by a subquery.
+- SYTNAX: expresion operator ANY(subquery)
+  - NOTE for above syntax:
+    - The subquery must return exactly one column.
+    - The ANY operator must be preceded by one of the following comparison operator =, <=, >, <, > and <>
+    - The ANY operator returns true if any value of the subquery meets the condition, otherwise, it returns false.
+- NOTE: SOME is a synonym for ANY, meaning that you can substitute SOME for ANY in any SQL statement.
+- = ANY is equivalent ==to==> IN operator.
+- <> ANY is NOT equivalent ==to==> NOT IN operator. (X)
+
+## ALL operator
+
+- ALL operator allows you to query data by comparing a value with a list of values returned by a subquery.
+- SYNTAX: comparison_operator ALL (subquery)
+  - NOTE for above syntax:
+    - The ALL operator must be preceded by a comparison operator =, <=, >, <, > and <>
+    - ALL operator must be followed by a subquery which also must be surrounded by the parentheses.
+
+## EXISTS operator
+
+- EXISTS operator is used to test for existence of rows in a subquery.
+- EXISTS accepts an argument which is a subquery.
+- If the subquery returns at least one row, the result of EXISTS is true. In case the subquery returns no row, the result is of EXISTS is false.
+- result of EXISTS depends on whether any row returned by the subquery, and not on the content of the rows. Therefore, the columns name that appear on the SELECT clause of the subquery are not important.
