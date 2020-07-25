@@ -119,3 +119,60 @@ CUBE (c1, c2, c3);
 - EXISTS accepts an argument which is a subquery.
 - If the subquery returns at least one row, the result of EXISTS is true. In case the subquery returns no row, the result is of EXISTS is false.
 - result of EXISTS depends on whether any row returned by the subquery, and not on the content of the rows. Therefore, the columns name that appear on the SELECT clause of the subquery are not important.
+
+---
+
+# CTE (common table expressions)
+
+- CTE is a temporary result set which you can reference within another SQL statement including SELECT, INSERT, UPDATE or DELETE.
+- CTEs are like temporary tables that only exist during the execution of the query.
+- SYNTAX:
+
+```
+  WITH cte_name (column_list) AS (
+  CTE_query_definition
+  )
+  statement;
+```
+
+- Syntax depict:
+  - First, specify the name of the CTE following by an optional column list.
+  - Second, inside the body of the WITH clause, specify a query that returns a result set. If you do not explicitly specify the column list after the CTE name, the select list of the CTE_query_definition will become the column list of the CTE.
+  - Third, use the CTE like a table or view in the statement which can be a SELECT, INSERT, UPDATE, or DELETE.
+- CTEs are typically used to simplify complex joins and subqueries
+- CTE advantages:
+  - Improve the readability of complex queries.
+  - Ability to create recursive queries. Recursive queries are queries that reference themselves.
+  - Use in conjunction with window functions.
+    (You can use CTEs in conjunction with window functions to create an initial result set and use another select statement to further process this result set).
+
+## recursive query
+
+- A recursive query is a query that refers to a recursive CTE.
+- SYNTAX :
+
+```
+WITH RECURSIVE cte_name AS(
+    CTE_query_definition -- non-recursive term
+    UNION [ALL]
+    CTE_query definion  -- recursive term
+) SELECT * FROM cte_name;
+```
+
+- Syntax depict:
+  - Non-recursive term: the non-recursive term is a CTE query definition that forms the base result set of the CTE structure.
+  - Recursive term: the recursive term is one or more CTE query definitions joined with the non-recursive term using the UNION or UNION ALL operator.
+  - Termination check: the recursion stops when no rows are returned from the previous iteration.
+
+---
+
+# db transaction
+
+- A database transaction is a single unit of work that consists of one or more operations.
+- classical example of a transaction is a bank transfer from one account to another. A complete transaction must ensure a balance between the sender and receiver accounts. It means that if the sender account transfers X amount, the receiver receives X amount, no more or no less.
+- A PostgreSQL transaction is atomic, consistent, isolated, and durable. (ACID)
+  - Atomicity guarantees that the transaction completes in an all-or-nothing manner.
+  - Consistency ensures the change to data written to the database must be valid and follow predefined rules.
+  - Isolation determines how transaction integrity is visible to other transactions.
+  - Durability makes sure that transactions that have been committed will be stored in the database permanently.
+-
