@@ -69,3 +69,80 @@ VALUES (value1, value2, …);
 ## UPDATE
 
 - UPDATE statement to update existing data/row in a table.
+- SYNTAX:
+
+```
+UPDATE table_name
+SET column1 = value1,
+    column2 = value2,
+    ...
+WHERE condition;
+```
+
+- The WHERE clause is optional. If you omit the WHERE clause, the UPDATE statement will update all rows in the table.
+- UPDATE statement is executed successfully, it returns the following command tag: UPDATE count
+- Returning updated rows
+  - UPDATE statement has an optional RETURNING clause
+  - SYNTAX:
+  ```
+  UPDATE table_name
+  SET column1 = value1,
+      column2 = value2,
+      ...
+  WHERE condition
+  RETURNING * | output_expression AS output_name;
+  ```
+  - UPDATE Join
+    - UPDATE join syntax to update data in a table based on values in another table.
+    - SYNTAX:
+    ```
+    UPDATE t1
+    SET t1.c1 = new_value
+    FROM t2
+    WHERE t1.c2 = t2.c2;
+    ```
+    - updates the value in the c1 column of the table t1
+
+## DELETE
+
+- DELETE statement to delete data from a table.
+- SYNTAX:
+
+```
+DELETE FROM table_name
+WHERE condition;
+```
+
+- WHERE clause is optional. If you omit the WHERE clause, the DELETE statement will delete all rows in the table.
+- DELETE statement returns the number of rows deleted. It returns zero if the DELETE statement did not delete any row.
+- with RETURNING clause:
+  - SYNTAX:
+  ```
+  DELETE FROM table_name
+  WHERE condition
+  RETURNING (select_list | *)
+  ```
+  - asterisk (\*) allows you to return all columns of the deleted row from the table_name
+
+## UPSERT
+
+- upsert feature to insert or update data
+- term upsert is referred to as merge.
+- when you insert a new row into the table, will update the row if it already exists, otherwise, it will insert the new row.
+- SYNTAX:
+
+```
+INSERT INTO table_name(column_list)
+VALUES(value_list)
+ON CONFLICT target action;
+```
+
+- Basically using ON CONFLICT target action clause to the INSERT statement to support the upsert feature.
+- the target can be one of the following:
+  - (column_name) – a column name.
+  - ON CONSTRAINT constraint_name – where the constraint name could be the name of the UNIQUE constraint.
+  - WHERE predicate – a WHERE clause with a predicate.
+- the action can be one of the following:
+  - DO NOTHING – means do nothing if the row already exists in the table.
+  - DO UPDATE SET column_1 = value_1, .. WHERE condition – update some fields in the table.
+- NOTE: ON CONFLICT clause is only available from PostgreSQL 9.5.
