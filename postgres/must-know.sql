@@ -32,3 +32,6 @@ SELECT
 -- ? space that needs to store a specific value
 select
     pg_column_size(5 :: smallint);
+
+-------------------------------------------------
+--------------------! -------------------

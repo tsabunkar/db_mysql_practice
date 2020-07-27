@@ -256,3 +256,76 @@ ON CONFLICT target action;
     - this function accepts a tablespace name and returns the size in bytes.
   - pg_column_size():
     - To find how much space that needs to store a specific value.
+
+---
+
+# Managing Tables
+
+## Data-types
+
+- PostgreSQL supports following data-type:
+  - Boolean
+  - Character types such as char, varchar, and text.
+  - Numeric types such as integer and floating-point number.
+  - Temporal types such as date, time, timestamp, and interval
+  - UUID for storing Universally Unique Identifiers
+  - Array for storing array strings, numbers, etc.
+  - JSON stores JSON data
+  - hstore stores key-value pair
+  - Special types such as network address and geometric data.
+- Boolean
+  - can hold one of three possible values: true, false or null.
+  - use boolean or bool keyword to declare a column
+  - When you insert data into a Boolean column, PostgreSQL converts it to a Boolean value:
+    - 1, yes, y, t, true values are converted to true
+    - 0, no, false, f values are converted to false
+- Character
+  - provides three character data types: CHAR(n), VARCHAR(n), and TEXT
+  - CHAR(n):
+    - is the fixed-length character with space padded.
+    - If you insert a string that is shorter than the length of the column, PostgreSQL pads spaces.
+    - If you insert a string that is longer than the length of the column, PostgreSQL will issue an error.
+  - VARCHAR(n):
+    - is the variable-length character string.
+    - PostgreSQL does not pad spaces when the stored string is shorter than the length of the column.
+  - TEXT:
+    - is the variable-length character string.
+    - Theoretically, text data is a character string with unlimited length.
+- Numeric
+  - Integer
+    - three kinds of integers in PostgreSQL:
+      - Small integer ( SMALLINT) is 2-byte signed integer
+      - Integer ( INT) is a 4-byte integer
+      - Serial is the same as integer except that PostgreSQL will automatically generate and populate values into the SERIAL column. ( This is similar to AUTO_INCREMENT column in MySQL, SQLite )
+  - Floating-point number
+    - three main types of floating-point numbers:
+      - float(n) is a floating-point number
+      - real or float8 is a 4-byte floating-point number.
+      - numeric or numeric(p,s) is a real number with p digits with s number after the decimal point.
+- Temporal
+  - has five main temporal data types:
+    - DATE stores the dates only
+    - TIME stores the time of day values.
+    - TIMESTAMP stores both date and time values.
+    - TIMESTAMPTZ is a timezone-aware timestamp data type.
+    - INTERVAL stores periods of time.
+- Arrays
+  - can store an array of strings, an array of integers, etc.
+  - comes in handy for situations like- storing days of the week, months of the year.
+- JSON
+  - two JSON data types: JSON and JSONB for storing JSON data.
+  - JSON data type stores plain JSON data that requires reparsing for each processing.
+  - JSONB data type stores JSON data in a binary format which is faster to process but slower to insert.
+  - JSONB also supports indexing.
+- UUID
+  - store Universal Unique Identifiers defined by RFC 4122
+  - UUID values guarantee a better uniqueness than SERIAL
+- Special data types
+  - Besides the primitive data types, PostgreSQL also provides several special data types related to geometric and network.
+    - box – a rectangular box.
+    - line – a set of points.
+    - point – a geometric pair of numbers.
+    - lseg – a line segment.
+    - polygon – a closed geometric.
+    - inet – an IP4 address.
+    - macaddr – a MAC address.
