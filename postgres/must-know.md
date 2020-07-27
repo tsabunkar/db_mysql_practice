@@ -329,3 +329,31 @@ ON CONFLICT target action;
     - polygon – a closed geometric.
     - inet – an IP4 address.
     - macaddr – a MAC address.
+
+## CREATE TABLE
+
+- statement to create new a new table.
+- SYNTAX:
+
+```
+CREATE TABLE [IF NOT EXISTS] table_name (
+   column1 datatype(length) column_contraint,
+   column2 datatype(length) column_contraint,
+   column3 datatype(length) column_contraint,
+   table_constraints
+);
+```
+
+- Use the IF NOT EXISTS option to create the new table only if that table does not exist.
+- Constraints:
+  - NOT NULL – ensures that values in a column cannot be NULL.
+  - UNIQUE – ensures the values in a column unique across the rows within the same table.
+  - PRIMARY KEY – a primary key column uniquely identify rows in a table. A table can have one and only one primary key.
+  - FOREIGN KEY – ensures values in a column or a group of columns from a table exists in a column or group of columns in another table. Unlike the primary key, a table can have many foreign keys.
+  - CHECK – a CHECK constraint ensures the data must satisfy a boolean expression.
+
+## SELECT INTO
+
+- statement to create a new table from the result set of a query.
+- statement creates a new table and inserts data returned from a query into the table.
+-
