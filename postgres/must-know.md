@@ -241,4 +241,18 @@ ON CONFLICT target action;
         - (copy the dump file to the remote server)
         - CREATE DATABASE targetdb; (create new db in the remote server)
         - psql -U postgres -d targetdb -f sourcedb.sql; (restore the dump file on the remote server)
-- Get Table, Database, Indexes, Tablespace, and Value Size in PostgreSQL:
+- Get Database Object Sizes in PostgreSQL:
+  - pg_relation_size():
+    - this function get the size of a specific table.
+    - function returns the size of the table only, not included indexes or additional objects.
+  - pg_total_relation_size():
+    - function to find the size of biggest tables including indexes.
+  - pg_database_size():
+    - To get the size of the whole database.
+  - pg_indexes_size():
+    - To get total size of all indexes attached to a table
+    - this function accepts the OID or table name as the argument and returns the total disk space used by all indexes attached of that table.
+  - pg_tablespace_size():
+    - this function accepts a tablespace name and returns the size in bytes.
+  - pg_column_size():
+    - To find how much space that needs to store a specific value.
