@@ -487,5 +487,8 @@ CREATE SEQUENCE [ IF NOT EXISTS ] sequence_name
   [ CASCADE | RESTRICT ];
   ```
 
+## Identity Column
 
-
+- PostgreSQL version 10 introduced a new constraint GENERATED AS IDENTITY
+- it allows us to automatically assign a unique number to a column.
+-
