@@ -356,4 +356,47 @@ CREATE TABLE [IF NOT EXISTS] table_name (
 
 - statement to create a new table from the result set of a query.
 - statement creates a new table and inserts data returned from a query into the table.
--
+- new table will have columns with the names the same as columns of the result set of the query.
+- SELECT INTO statement does not return a result to the client.
+- SYNTAX:
+
+```
+SELECT
+    select_list
+INTO [ TEMPORARY | TEMP | UNLOGGED ] [ TABLE ] new_table_name
+FROM
+    table_name
+WHERE
+    search_condition;
+```
+
+- TEMP or TEMPORARY keyword is optional; it allows you to create a temporary table instead.
+- UNLOGGED keyword if available will make the new table as an unlogged table.
+- NOTE: that you cannot use the SELECT INTO statement in PL/pgSQL
+
+## CREATE TABLE AS
+
+- statement to create a new table from the result set of a query.
+- SYNTAX:
+
+```
+CREATE [ TEMPORARY | TEMP | UNLOGGED ] TABLE new_table_name
+AS query;
+```
+
+- TEMPORARY or TEMP keyword allows you to to create a temporary table
+- UNLOGGED keyword allows the new table to be created as an unlogged table:
+- The columns of the new table will have the names and data types associated with the output columns of the SELECT clause.
+- If you want the table columns to have different names, you can specify the new table columns after the new table name:
+
+```
+CREATE TABLE [IF NOT EXISTS] new_table_name ( column_name_list)
+AS query;
+```
+
+- IF NOT EXISTS -> If we want to avoid an error by creating a new table that already exists.
+- NOTE: CREATE TABLE AS statement is similar to the SELECT INTO statement, but the CREATE TABLE AS statement is preferred because it is not confused with other uses of the SELECT INTO syntax in PL/pgSQL.
+
+## Auto-increment
+
+- 
