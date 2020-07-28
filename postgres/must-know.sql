@@ -108,3 +108,57 @@ SELECT
     *
 FROM
     film_rating;
+
+-------------------------------------------------
+--------------------! SEQUENCE -------------------
+-- ? ascending sequence starting from 100 with an increment of 5
+CREATE SEQUENCE mysequence INCREMENT 5 START 100;
+
+-- ? To get the next value from the sequence 
+SELECT
+    nextval('mysequence');
+
+-- ? descending sequence from 3 to 1 with the cycle
+CREATE SEQUENCE three INCREMENT -1 MINVALUE 1 MAXVALUE 3 START 3 CYCLE;
+
+SELECT
+    nextval('three');
+
+-- ? sequence associated with a table column
+-- Creating table
+CREATE TABLE order_details(
+    order_id SERIAL,
+    -- Auto increment column, on which will apply custom sequence
+    item_id INT NOT NULL,
+    item_text VARCHAR NOT NULL,
+    price DEC(10, 2) NOT NULL,
+    PRIMARY KEY(order_id, item_id)
+);
+
+-- create new sequence and assigning it to particular column of a table
+CREATE SEQUENCE order_item_id START 10 INCREMENT 10 MINVALUE 10 OWNED BY order_details.item_id;
+
+-- insert sampe dataset to table without specifiying value of auto-incremnt column
+INSERT INTO
+    order_details(order_id, item_id, item_text, price)
+VALUES
+    (100, nextval('order_item_id'), 'DVD Player', 100),
+    (100, nextval('order_item_id'), 'Android TV', 550),
+    (100, nextval('order_item_id'), 'Speaker', 250);
+
+-- project table
+SELECT
+    order_id,
+    item_id,
+    item_text,
+    price
+FROM
+    order_details;
+
+--  ?Listing all sequences in a database
+SELECT
+    relname sequence_name
+FROM
+    pg_class
+WHERE
+    relkind = 'S';
