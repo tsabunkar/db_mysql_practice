@@ -168,6 +168,7 @@ WITH RECURSIVE cte_name AS(
 
 # db transaction
 
+- unit of work design pattern implementated in nestjs-typeorm project
 - A database transaction is a single unit of work that consists of one or more operations.
 - classical example of a transaction is a bank transfer from one account to another. A complete transaction must ensure a balance between the sender and receiver accounts. It means that if the sender account transfers X amount, the receiver receives X amount, no more or no less.
 - A PostgreSQL transaction is atomic, consistent, isolated, and durable. (ACID)
