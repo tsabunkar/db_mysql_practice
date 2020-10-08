@@ -356,3 +356,7 @@ this is incompatible with sql_mode=only_full_group_by
   b. ON clause - Before joining. Records (from right table) will be filtered before joining. This may end up as null in the result (since OUTER join).
 
 ---
+
+# SQL Analyze:
+
+https://explain.depesz.com/
